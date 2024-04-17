@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { PreloadComponent } from './preload/preload.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/home/home.component';
+import { ComponentsModule } from '../components/components.module';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -13,7 +15,9 @@ import { HomeComponent } from './dashboard/home/home.component';
     HomeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule,
+    AppRoutingModule
   ]
 })
 export class PagesModule { }

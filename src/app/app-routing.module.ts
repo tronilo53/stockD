@@ -11,10 +11,10 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'Home', component: HomeComponent },
-      { path: '**', pathMatch: 'full', redirectTo: 'Home' }
+      { path: '', pathMatch: 'full', redirectTo: 'Home' }
     ] 
   },
-  { path: '**', pathMatch: 'full', redirectTo: 'Dashboard' }
+  { path: '', pathMatch: 'full', redirectTo: 'Dashboard' }
 ];
 
 @NgModule({
