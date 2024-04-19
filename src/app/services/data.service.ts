@@ -9,7 +9,7 @@ export class DataService {
 
   constructor( private httpClient: HttpClient ) { }
 
-  public obtenerPedidos(data: any) {
+  public query(data: any) {
     return this.httpClient.post(`${environment.url}/query.php`, data);
   }
 }

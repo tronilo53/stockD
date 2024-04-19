@@ -28,15 +28,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
-
-                                        </div>
+                                        <div class="col-4"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <canvas id="pedidos">{{ chart }}</canvas>
+                    <div class="alert alert-danger mt-3" role="alert" *ngIf="!chartPedidosBandera">
+                        No existen Pedidos en el año Seleccionado
+                    </div>
+                    <canvas id="pedidos" *ngIf="chartPedidosBandera">{{ chartPedidos }}</canvas>
                 </div>
             </div>
         </div>
@@ -52,19 +53,32 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Filtros</h5>
-                                    <div class="mb-2">
-                                        <label for="ano">Modelos</label>
-                                        <select name="ano" id="ano" class="form-control" [(ngModel)]="modelo">
-                                            <option value="???">Seleccione</option>
-                                            <option value="Delaqua">Delaqua</option>
-                                            <option value="Desincal">Desincal</option>
-                                        </select>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-2">
+                                                <label for="ano">Modelos</label>
+                                                <select name="ano" id="ano" class="form-control" [(ngModel)]="modelo">
+                                                    <option value="???">Seleccione</option>
+                                                    <option value="Delaqua">Delaqua</option>
+                                                    <option value="Desincal">Desincal</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-2">
+                                                <br>
+                                                <div class="d-grid gap-2">
+                                                    <button type="button" class="btn btn-warning" (click)="filtrarEquipos()">Filtrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <canvas id="equipos">{{ chart }}</canvas>
+                    <canvas id="equipos">{{ chartEquipos }}</canvas>
                 </div>
             </div>
         </div>
