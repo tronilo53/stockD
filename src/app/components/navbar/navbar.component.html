@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-sm bg-body-tertiary">
+<nav class="navbar navbar-expand-sm sticky-top bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img class="logo" src="assets/logo/logo_small.png" alt="logo_small.png">
         </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link">Home</a>
+                <a class="nav-link" [routerLink]="['/Dashboard/Home']" routerLinkActive="active" >Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link">Stock</a>
