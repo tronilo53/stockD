@@ -34,10 +34,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="alert alert-danger mt-3" role="alert" *ngIf="!chartPedidosBandera">
-                        No existen Pedidos en el año Seleccionado
+                    <div class="mb-3">
+                        <canvas id="pedidos">{{ chartPedidos }}</canvas>
                     </div>
-                    <canvas id="pedidos" *ngIf="chartPedidosBandera">{{ chartPedidos }}</canvas>
+                    <div class="mb-3">
+                        <a class="btn btn-outline-warning">Más Info...</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,7 +80,12 @@
                             </div>
                         </div>
                     </div>
-                    <canvas id="equipos">{{ chartEquipos }}</canvas>
+                    <div class="mb-3">
+                        <canvas id="equipos">{{ chartEquipos }}</canvas>
+                    </div>
+                    <div class="mb-3">
+                        <a class="btn btn-outline-warning">Más Info...</a>
+                    </div>
                 </div>
             </div>
         </div>

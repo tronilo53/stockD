@@ -8,9 +8,6 @@ import { DataService } from '../../../services/data.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-
-  public chartPedidosBandera: boolean = true;
-  public chartEquiposBandera: boolean = true;
   /**
    * * Propiedad {Variables para Crear los Chart.js}
    */
@@ -30,8 +27,8 @@ export class HomeComponent implements OnInit {
   /**
    * * Propiedad {Variables para guardar la data de los chart.js}
    */
-  private datosPedidos: string[] = [];
-  private datosEquipos: string[] = [];
+  public datosPedidos: string[] = [];
+  public datosEquipos: string[] = [];
 
   constructor( private _dataService: DataService ) {}
 
@@ -41,20 +38,7 @@ export class HomeComponent implements OnInit {
 
       this.datosPedidos = resp;
 
-      const datosPedidosCopia: string[] = [];
-  
-      for(let i = 0; i < resp.length; i++) {
-        datosPedidosCopia.push(resp[i]);
-        datosPedidosCopia[i] = '0';
-      }
-      
-      if(datosPedidosCopia === this.datosPedidos) this.chartPedidosBandera = false;
-      else {
-        this.chartPedidosBandera = true;
-        this.runChartPedidos();
-      }
-      
-
+      this.runChartPedidos();
     });
 
 
@@ -74,6 +58,7 @@ export class HomeComponent implements OnInit {
           {
             label: 'Recuento',
             data: this.datosPedidos,
+            backgroundColor: [ 'rgba(75, 192, 192, 0.2)' ],
             borderWidth: 1,
           },
         ],
@@ -112,19 +97,11 @@ export class HomeComponent implements OnInit {
 
     this._dataService.query({ passCode: '001', year: Number(this.ano) }).subscribe((resp: any) => {
 
+      if(this.chartPedidos) this.chartPedidos.destroy();
+      
       this.datosPedidos = resp;
 
-      if(this.chartPedidos) {
-        this.chartPedidos.destroy();
-
-        const copia: string[] = [...this.datosPedidos];
-        copia.forEach(element => element = '0');
-
-        if(JSON.stringify(copia) === JSON.stringify(this.datosPedidos)) this.chartPedidosBandera = false;
-        else this.chartPedidosBandera = false;
-
-        this.runChartPedidos();
-      }
+      this.runChartPedidos();
     });
   }
   public filtrarEquipos(): void {
@@ -135,8 +112,6 @@ export class HomeComponent implements OnInit {
       this.datosEquipos = resp;
 
       this.runChartEquipos();
-
-      console.log(resp);
     });
   }
 }
