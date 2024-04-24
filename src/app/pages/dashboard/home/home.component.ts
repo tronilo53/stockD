@@ -94,7 +94,6 @@ export class HomeComponent implements OnInit {
     });
   }
   public filtrarPedidos(): void {
-
     this._dataService.query({ passCode: '001', year: Number(this.ano) }).subscribe((resp: any) => {
 
       if(this.chartPedidos) this.chartPedidos.destroy();

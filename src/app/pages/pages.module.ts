@@ -7,6 +7,7 @@ import { ComponentsModule } from '../components/components.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PedidosComponent } from './dashboard/home/pedidos/pedidos.component';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     PreloadComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    PedidosComponent
   ],
   imports: [
     CommonModule,
