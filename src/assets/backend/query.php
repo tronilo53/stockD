@@ -8,6 +8,9 @@
 
 
     switch ($params->passCode) {
+    	/*
+		* * Obtener el número total de pedidos realizados referentes a un mes y un año concretos
+    	*/
     	case '001':
     		$data = [];
     		for($i = 1; $i < 13; $i ++) {
@@ -17,6 +20,9 @@
     		}
     		$res = $data;	
     	break;
+    	/*
+		* * Obtener el número de equipos en stock referentes a una categoria [Delaqua - Desincal]
+    	*/
     	case '002':
     		$data = [];
     		if($params->model === 'Delaqua') {
@@ -33,6 +39,12 @@
     			}
     		}
     		$res = $data;
+    	break;
+    	/*
+		* * Obtener informacion superficial de los pedidos realizados
+    	*/
+    	case '003':
+    		
     	break;
     }
 
