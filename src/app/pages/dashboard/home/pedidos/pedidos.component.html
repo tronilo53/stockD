@@ -19,18 +19,18 @@
                     <h5>Filtros</h5>
                     <div class="row">
                         <div class="col-4">
-                            <label for="month">Mes</label>
-                            <Select class="form-control" name="month" id="month" [(ngModel)]="month">
-                                <option value="???">Seleccione</option>
-                                <option [value]="m" *ngFor="let m of meses">{{ m }}</option>
-                            </Select>
-                        </div>
-                        <div class="col-4">
                             <label for="ano">Año</label>
-                            <select class="form-control" name="ano" id="ano" [(ngModel)]="anio">
+                            <select class="form-control" [(ngModel)]="binding.ano">
                                 <option value="???">Seleccione</option>
                                 <option [value]="a" *ngFor="let a of anios">{{ a }}</option>
                             </select>
+                        </div>
+                        <div class="col-4">
+                            <label for="mes">Mes</label>
+                            <Select class="form-control" name="mes" ngDefaultControl [(ngModel)]="binding.mes">
+                                <option value="???">Seleccione</option>
+                                <option [value]="m" *ngFor="let m of meses">{{ m }}</option>
+                            </Select>
                         </div>
                         <div class="col-4">
                             <div class="mb-2">

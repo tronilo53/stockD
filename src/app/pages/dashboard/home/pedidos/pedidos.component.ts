@@ -7,21 +7,16 @@ import { environment } from '../../../../../environments/environment';
   styleUrl: './pedidos.component.css'
 })
 export class PedidosComponent {
+  public meses:string[] = environment.meses;
+  public anios:string[] = environment.anios;
 
-  public meses:string[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-  public anios: string[] = ['2023', '2024'];
-  //public meses:string[] = environment.meses;
-  //public anios:string[] = environment.anios;
-  public month: string = 'Enero';
-  public anio: string = '???';
-  /*public binding: any = {
+  public binding: any = {
     ano: '???',
     mes: '???'
-  };*/
+  };
 
   public limpiarFiltros(): void {
-    alert(this.anio);
-    //this.binding.ano = '???';
-    //this.binding.mes = '???';
+    this.binding.ano = '???';
+    this.binding.mes = '???';
   }
 }
