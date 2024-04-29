@@ -52,6 +52,10 @@
     			$stmt = $pdo -> prepare('SELECT * FROM pedidos WHERE MONTH(fecha) = ? AND YEAR(fecha) = ?');
     			$stmt -> execute([ $params->mes, $params->anio ]);
     		}
+    		if($params->anio) {
+    			$stmt = $pdo -> prepare('SELECT * FROM pedidos WHERE YEAR(fecha) = ?');
+    			$stmt -> execute([ $params->anio ]);
+    		}
     		$res = $stmt -> fetchAll();
     	break;
     }

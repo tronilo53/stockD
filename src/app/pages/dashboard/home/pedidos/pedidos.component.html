@@ -20,16 +20,16 @@
                     <div class="row">
                         <div class="col-4">
                             <label for="ano">Año</label>
-                            <select class="form-control" [(ngModel)]="binding.ano">
+                            <select class="form-control" [(ngModel)]="binding.ano" #anoSelect (focus)="removeBorder()">
                                 <option value="???">Seleccione</option>
                                 <option [value]="a" *ngFor="let a of anios">{{ a }}</option>
                             </select>
                         </div>
                         <div class="col-4">
                             <label for="mes">Mes</label>
-                            <Select class="form-control" name="mes" ngDefaultControl [(ngModel)]="binding.mes">
+                            <Select class="form-control" name="mes" ngDefaultControl [(ngModel)]="binding.mes" (focus)="removeBorder()" #mesSelect>
                                 <option value="???">Seleccione</option>
-                                <option [value]="m" *ngFor="let m of meses">{{ m }}</option>
+                                <option [value]="i + 1" *ngFor="let m of meses; let i = index">{{ m }}</option>
                             </Select>
                         </div>
                         <div class="col-4">
@@ -40,7 +40,7 @@
                             </div>
                             <div class="mb-2">
                                 <div class="d-grid gap-2">
-                                    <button class="btn btn-warning">Filtrar</button>
+                                    <button class="btn btn-warning" (click)="filtrar()">Filtrar</button>
                                 </div>
                             </div>
                         </div>
@@ -51,13 +51,15 @@
     </div>
     <div class="row mt-3">
         <div class="col">
-            <div class="spinner text-center" *ngIf="pedidos.length < 1">
+            <h5>Mostrando Pedidos por: <span class="text-warning">{{ title }}</span></h5>
+            <div class="spinner text-center" *ngIf="loading">
                 <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
                 <h4>Cargando Datos...</h4>
             </div>
-            <ul class="list-group" *ngIf="pedidos.length > 0">
+            <div class="alert alert-warning" role="alert" *ngIf="alertPedidos">No existen Pedidos Referentes a este tipo de Filtro</div>
+            <ul class="list-group" *ngIf="viewPedidos">
                 <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="#" *ngFor="let p of pedidos">
                 {{ p.fecha | datemod: '/' }}
                 <span class="badge text-bg-primary rounded-pill">{{ p.total | decimal }}&euro;</span>
