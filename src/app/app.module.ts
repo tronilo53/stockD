@@ -10,6 +10,8 @@ import { PedidosComponent } from './pages/dashboard/home/pedidos/pedidos.compone
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { FormsModule } from '@angular/forms';
+import { DecimalPipe } from './pipes/decimal.pipe';
+import { DatemodPipe } from './pipes/date.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     PreloadComponent,
     DashboardComponent,
     HomeComponent,
-    PedidosComponent
+    PedidosComponent,
+    DecimalPipe,
+    DatemodPipe
   ],
   imports: [
     BrowserModule,

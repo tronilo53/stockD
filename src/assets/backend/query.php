@@ -44,7 +44,15 @@
 		* * Obtener informacion superficial de los pedidos realizados
     	*/
     	case '003':
-    		
+    		if($params->all) {
+    			$stmt = $pdo -> prepare('SELECT * FROM pedidos');
+    			$stmt -> execute();
+    		}
+    		if ($params->mes && $params->anio) {
+    			$stmt = $pdo -> prepare('SELECT * FROM pedidos WHERE MONTH(fecha) = ? AND YEAR(fecha) = ?');
+    			$stmt -> execute([ $params->mes, $params->anio ]);
+    		}
+    		$res = $stmt -> fetchAll();
     	break;
     }
 
