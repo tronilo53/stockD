@@ -20,8 +20,17 @@ export class PedidoComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.referencia = params['referencia'];
-      this.dataService.query({ passCode: '004', referencia: this.referencia }).subscribe((resp: any) => {
-        this.pedido = JSON.parse(resp.res);
+      this.dataService.query({ passCode: '003', referencia: this.referencia }).subscribe((resp: any) => {
+        this.pedido = resp.map((item => {
+          return {
+            fecha: item.fecha,
+            id: item.id,
+            pedido: JSON.parse(item.pedido),
+            referencia: item.referencia,
+            total: item.total
+          };
+        }));
+        console.log(this.pedido);
       });
     });
   }
