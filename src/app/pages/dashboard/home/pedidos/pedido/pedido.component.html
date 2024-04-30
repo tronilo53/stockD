@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="bread mt-3">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/Dashboard']">Home</a></li>
+                        <li class="breadcrumb-item"><a [routerLink]="['/Dashboard/Pedidos']">Pedidos</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Pedido: <strong>{{ referencia }}</strong></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

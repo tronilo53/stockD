@@ -60,7 +60,7 @@
             </div>
             <div class="alert alert-warning" role="alert" *ngIf="alertPedidos">No existen Pedidos Referentes a este tipo de Filtro</div>
             <ul class="list-group" *ngIf="viewPedidos">
-                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="#" *ngFor="let p of pedidos">
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" [routerLink]="['/Dashboard/Pedido', p.referencia]" *ngFor="let p of pedidos">
                 {{ p.fecha | datemod: '/' }}
                 <span class="badge text-bg-primary rounded-pill">{{ p.total | decimal }}&euro;</span>
                 </a>

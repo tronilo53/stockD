@@ -44,19 +44,27 @@
 		* * Obtener informacion superficial de los pedidos realizados
     	*/
     	case '003':
-    		if($params->all) {
+    		if($params->mes && $params->anio) {
+    			$stmt = $pdo -> prepare('SELECT * FROM pedidos WHERE MONTH(fecha) = ? AND YEAR(fecha) = ?');
+    			$stmt -> execute([ $params->mes, $params->anio ]);
+    		}elseif($params->anio) {
+    			$stmt = $pdo -> prepare('SELECT * FROM pedidos WHERE YEAR(fecha) = ?');
+    			$stmt -> execute([ $params->anio ]);
+    		}else {
     			$stmt = $pdo -> prepare('SELECT * FROM pedidos');
     			$stmt -> execute();
     		}
-    		if ($params->mes && $params->anio) {
-    			$stmt = $pdo -> prepare('SELECT * FROM pedidos WHERE MONTH(fecha) = ? AND YEAR(fecha) = ?');
-    			$stmt -> execute([ $params->mes, $params->anio ]);
-    		}
-    		if($params->anio) {
-    			$stmt = $pdo -> prepare('SELECT * FROM pedidos WHERE YEAR(fecha) = ?');
-    			$stmt -> execute([ $params->anio ]);
-    		}
     		$res = $stmt -> fetchAll();
+    	break;
+    	/*
+		* * Obtener informacion de los pedidos referentes a un id de pedido
+    	*/
+    	case '004':
+    		$stmt = $pdo -> prepare('SELECT * FROM pedidos WHERE referencia = ?');
+    		$stmt -> execute([ $params->referencia ]);
+    		foreach ($stmt -> fetchAll() as $key) {
+    			$res = ["res" => $key["pedido"]];
+    		}
     	break;
     }
 
