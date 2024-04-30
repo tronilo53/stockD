@@ -139,8 +139,6 @@ export class PedidosComponent implements OnInit {
           data = { passCode: '003', mes: this.binding.mes, anio: this.binding.ano };
           title = `Mes ${this.binding.mes} - Año ${this.binding.ano}`;
         }
-        console.log('Mes: ', this.binding.mes);
-        console.log('Año: ', this.binding.ano);
         //Peticion para obtener los pedidos filtrados
         this.dataService.query(data).subscribe((resp: any) => {
           //se igualan los pedidos recibidos a la variable pedidos
@@ -165,5 +163,9 @@ export class PedidosComponent implements OnInit {
         });
       }
     }
+  }
+
+  private alert(): void {
+    
   }
 }
