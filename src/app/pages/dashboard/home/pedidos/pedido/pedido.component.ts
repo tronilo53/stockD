@@ -8,7 +8,9 @@ import { DataService } from '../../../../../services/data.service';
   styleUrl: './pedido.component.css'
 })
 export class PedidoComponent implements OnInit {
-
+  /**
+   * * Propiedades
+   */
   public pedido: any[] = [];
   public referencia: string = '';
 
@@ -18,9 +20,13 @@ export class PedidoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //Peticion para obtener el parametro
     this.activatedRoute.params.subscribe((params: Params) => {
+      //Se guarda el parametro recibido en la variable "referencia"
       this.referencia = params['referencia'];
+      //Petcion para obtener el pedido referente a la referencia
       this.dataService.query({ passCode: '003', referencia: this.referencia }).subscribe((resp: any) => {
+        //mapeo de la obtencion de los datos
         this.pedido = resp.map((item => {
           return {
             fecha: item.fecha,
@@ -30,7 +36,6 @@ export class PedidoComponent implements OnInit {
             total: item.total
           };
         }));
-        console.log(this.pedido);
       });
     });
   }

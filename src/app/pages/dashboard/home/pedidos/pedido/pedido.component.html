@@ -6,21 +6,36 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a [routerLink]="['/Dashboard']">Home</a></li>
                         <li class="breadcrumb-item"><a [routerLink]="['/Dashboard/Pedidos']">Pedidos</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Pedido: <strong>{{ referencia }}</strong></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ referencia }}</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col">
-            <h2>Pedido: <span class="text-warning">{{ referencia }}</span></h2>
-        </div>
-    </div>
     <div class="row">
-        <div class="col-6">
-            <h5>Fecha del Pedido:</h5>
+        <div class="col">
+            <div class="card text-center">
+                <div class="card-header">Pedido: <span class="text-warning">{{ referencia }}</span></div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let p of pedido[0].pedido">
+                                    {{ p.equipo }}
+                                    <span class="badge text-bg-primary rounded-pill">Cantidad: {{ p.cantidad }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6"></div>
+                        <div class="col-6" style="text-align: right;">
+                            Total: <strong>{{ pedido[0].total | decimal }}&euro;</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-body-secondary">{{ pedido[0].fecha | datemod }}</div>
+            </div>
         </div>
-        <div class="col-6"></div>
     </div>
 </div>
