@@ -5,27 +5,21 @@
         </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/Dashboard']" routerLinkActive="active" >Home</a>
+                <a class="nav-link" [routerLink]="['/Dashboard/Home']" routerLinkActive="active">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Stock</a>
+                <a class="nav-link" [routerLink]="['/Dashboard/Componentes']" routerLinkActive="active">Componentes</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Gestión</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">Insertar Componentes</a></li>
-                    <li><a class="dropdown-item">Eliminar Componentes</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item">Simular Compra</a></li>
-                </ul>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/Dashboard/Gestion']" routerLinkActive="active">Gestión</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link">Perfil</a>
             </li>
         </ul>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="text" placeholder="Buscar">
-            <button class="btn btn-outline-warning" type="button">Buscar</button>
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-success" type="button">Buscar</button>
         </form>
     </div>
 </nav>

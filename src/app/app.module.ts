@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from './pipes/decimal.pipe';
 import { DatemodPipe } from './pipes/date.pipe';
 import { PedidoComponent } from './pages/dashboard/home/pedidos/pedido/pedido.component';
+import { ComponentesComponent } from './pages/dashboard/componentes/componentes.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PedidoComponent } from './pages/dashboard/home/pedidos/pedido/pedido.co
     PedidosComponent,
     DecimalPipe,
     DatemodPipe,
-    PedidoComponent
+    PedidoComponent,
+    ComponentesComponent
   ],
   imports: [
     BrowserModule,
