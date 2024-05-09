@@ -15,9 +15,12 @@
                                                 <label for="ano">Categoría</label>
                                                 <select name="categoria" id="categoria" class="form-control">
                                                     <option value="???">Seleccione</option>
-                                                    
+                                                    <option [value]="c" *ngFor="let c of categorias">{{ c }}</option>
                                                 </select>
                                             </div>
+                                        </div>
+                                        <div class="col-4">
+
                                         </div>
                                         <div class="col-4">
                                             <div class="mb-2">
@@ -27,7 +30,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-4"></div>
                                     </div>
                                 </div>
                             </div>
