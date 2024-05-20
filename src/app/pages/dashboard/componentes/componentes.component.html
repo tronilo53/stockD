@@ -20,7 +20,13 @@
                                             </div>
                                         </div>
                                         <div class="col-4">
-
+                                            <div class="mb-2">
+                                                <label for="ano">Empresa</label>
+                                                <select name="empresa" id="empresa" class="form-control">
+                                                    <option value="???">Seleccione</option>
+                                                    <option [value]="e" *ngFor="let e of empresas">{{ e }}</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="mb-2">
@@ -33,6 +39,11 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            
                         </div>
                     </div>
                 </div>

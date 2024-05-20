@@ -9,6 +9,7 @@ import { environment } from '../../../../environments/environment';
 export class ComponentesComponent implements OnInit {
 
   public categorias: string[] = environment.categorias;
+  public empresas: string[] = environment.empresas;
 
   constructor() {}
 
